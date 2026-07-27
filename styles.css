@@ -1,6 +1,6 @@
 /* japandi-home-decor — index.html 専用のCSS
    - 白背景 / 濃いグレーの文字 / ベージュは控えめ（Japandiデザインを維持）
-   - 読みやすさ優先・スマートフォン対応
+   - 読みやすさ優先・モバイル最適化
    - Amazon公式サイトと誤認させないシンプルなデザイン */
 
 * {
@@ -14,6 +14,7 @@ body {
   font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.7;
   font-size: 17px;
+  -webkit-text-size-adjust: 100%;
 }
 
 .page {
@@ -22,17 +23,24 @@ body {
   padding: 24px 20px 48px;
 }
 
-/* ===== 1. Hero ===== */
-.hero {
-  padding-bottom: 8px;
+img {
+  max-width: 100%;
 }
 
+/* リンクのフォーカス表示（キーボード操作・アクセシビリティ） */
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #8a6b3f;
+  outline-offset: 2px;
+}
+
+/* ===== 1. Hero ===== */
 .eyebrow {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #a9895f;
+  color: #8a6b3f;
   margin: 8px 0 6px;
 }
 
@@ -40,48 +48,45 @@ body {
   font-size: 1.75rem;
   line-height: 1.3;
   color: #1f1f1f;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
 
 .hero-lead {
   color: #3a3a3a;
+  font-size: 1.06rem;
   margin: 0 0 20px;
 }
 
 .hero-image {
   aspect-ratio: 3 / 2;
-  margin-bottom: 12px;
-}
-
-.hero-note {
-  font-size: 0.92rem;
-  color: #6a6a6a;
-  margin: 0;
+  margin: 24px 0 0;
 }
 
 /* ===== セクション共通 ===== */
 .section {
-  margin-top: 40px;
+  margin-top: 44px;
 }
 
 .section-title {
   font-size: 1.3rem;
+  line-height: 1.35;
   color: #1f1f1f;
   margin: 0 0 12px;
 }
 
-/* ===== 2. 比較表 ===== */
+/* ===== 2. Comparison Table ===== */
 /* 横に長い表は、この枠の中だけ横スクロールします（ページ全体は崩れません） */
 .table-wrap {
   overflow-x: auto;
   border: 1px solid #ece7df;
   border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .compare-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 560px;
+  min-width: 520px;
   font-size: 0.95rem;
 }
 
@@ -110,11 +115,21 @@ body {
   color: #3a3a3a;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
+.stars {
+  color: #8a6b3f;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
 /* 「Best Overall」などのラベル */
 .tag {
   display: inline-block;
   background-color: #f3efe8;
-  color: #6b5a42;
+  color: #5f5140;
   border: 1px solid #e3dacb;
   border-radius: 999px;
   padding: 3px 11px;
@@ -131,11 +146,11 @@ body {
 
 .table-note {
   font-size: 0.88rem;
-  color: #6a6a6a;
+  color: #5f5f5f;
   margin: 10px 0 0;
 }
 
-/* ===== 3〜5. 商品ピック（Best Overall / Best Value / Budget Pick） ===== */
+/* ===== 3〜5. 商品ピック ===== */
 .pick {
   border-top: 1px solid #ece7df;
   padding-top: 28px;
@@ -146,12 +161,12 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #a9895f;
+  color: #8a6b3f;
   margin: 0 0 4px;
 }
 
 .pick-label-best {
-  color: #8a6b3f;
+  color: #7a5c33;
 }
 
 /* 画像と文章を横並びに（狭い画面では自動で縦積み） */
@@ -164,24 +179,53 @@ body {
 }
 
 .pick-text p {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   color: #3a3a3a;
 }
 
-.pick-text h3 {
-  font-size: 1.02rem;
-  color: #1f1f1f;
-  margin: 18px 0 8px;
-}
-
-.pick-text ul {
-  color: #3a3a3a;
-  padding-left: 1.2em;
+/* Pros / Cons */
+.proscons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px 20px;
+  background-color: #faf7f2;
+  border-radius: 10px;
+  padding: 4px 18px 14px;
   margin: 0 0 18px;
 }
 
-.pick-text li {
-  margin: 6px 0;
+.proscons h3 {
+  font-size: 0.95rem;
+  color: #1f1f1f;
+  margin: 14px 0 6px;
+}
+
+.pros h3::before {
+  content: "\2713\00a0";
+  color: #5f7a52;
+  font-weight: 700;
+}
+
+.cons h3::before {
+  content: "\2212\00a0";
+  color: #9c6b5a;
+  font-weight: 700;
+}
+
+.proscons ul {
+  color: #3a3a3a;
+  padding-left: 1.2em;
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+.proscons li {
+  margin: 5px 0;
+}
+
+.best-for {
+  border-left: 3px solid #d8c7ad;
+  padding-left: 14px;
 }
 
 /* 画像枠：images フォルダから読み込む。角丸・レスポンシブ・準備中表示 */
@@ -192,7 +236,7 @@ body {
   border-radius: 10px;
   overflow: hidden;
   background-color: #f3efe8;
-  margin: 0 0 12px;
+  margin: 0;
 }
 
 .image-frame::after {
@@ -202,7 +246,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a99f8c;
+  color: #8c8375;
   font-size: 0.9rem;
   letter-spacing: 0.03em;
   text-align: center;
@@ -222,13 +266,13 @@ body {
   display: none;
 }
 
-/* 商品ボタン（控えめなベージュ・派手にしない） */
+/* ボタン（控えめなベージュ・派手にしない） */
 .button {
   display: inline-block;
   background-color: #d8c7ad;
   color: #2b2b2b;
   text-decoration: none;
-  padding: 11px 18px;
+  padding: 12px 20px;
   border-radius: 6px;
   font-weight: 600;
   text-align: center;
@@ -261,7 +305,6 @@ body {
   list-style: none;
 }
 
-/* 開閉マーク（＋ / −） */
 .faq summary::-webkit-details-marker {
   display: none;
 }
@@ -269,7 +312,7 @@ body {
 .faq summary::after {
   content: "+";
   float: right;
-  color: #a9895f;
+  color: #8a6b3f;
   font-weight: 700;
   margin-left: 12px;
 }
@@ -283,11 +326,15 @@ body {
   color: #3a3a3a;
 }
 
-/* ===== 7. CTA ===== */
+/* ===== 7. Final Recommendation ===== */
 .cta {
   background-color: #faf7f2;
   border-radius: 12px;
-  padding: 24px 20px;
+  padding: 22px 20px 26px;
+}
+
+.cta .section-title {
+  margin-bottom: 10px;
 }
 
 .cta p {
@@ -313,11 +360,11 @@ body {
 
 .disclosure p {
   font-size: 0.9rem;
-  color: #6a6a6a;
+  color: #5f5f5f;
   margin: 0;
 }
 
-/* ===== スマートフォン対応 ===== */
+/* ===== モバイル最適化 ===== */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
@@ -329,13 +376,22 @@ body {
     font-size: 1.42rem;
   }
   .section {
-    margin-top: 32px;
+    margin-top: 34px;
   }
-  .pick-body {
+  .pick-body,
+  .proscons {
     grid-template-columns: 1fr;
   }
   .button {
     display: block;
     width: 100%;
+  }
+}
+
+/* 動きを減らす設定の人に配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
