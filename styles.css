@@ -1,8 +1,7 @@
-/* home-decor-starter.html 専用のCSS
-   - 白背景 / 濃いグレーの文字 / ベージュは控えめ
+/* japandi-home-decor — index.html 専用のCSS
+   - 白背景 / 濃いグレーの文字 / ベージュは控えめ（Japandiデザインを維持）
    - 読みやすさ優先・スマートフォン対応
-   - Amazon公式サイトと誤認させないシンプルなデザイン
-   - 商品カードは自動で並ぶグリッド。3〜8個以上に増えても崩れません。 */
+   - Amazon公式サイトと誤認させないシンプルなデザイン */
 
 * {
   box-sizing: border-box;
@@ -18,94 +17,178 @@ body {
 }
 
 .page {
-  max-width: 920px;   /* カードが横に並べる余裕を持たせる */
+  max-width: 920px;
   margin: 0 auto;
   padding: 24px 20px 48px;
 }
 
-.intro h1 {
-  font-size: 1.6rem;
-  line-height: 1.35;
-  color: #1f1f1f;
-  margin: 8px 0 16px;
+/* ===== 1. Hero ===== */
+.hero {
+  padding-bottom: 8px;
 }
 
-/* セクション見出し */
-.section-title {
-  font-size: 1.3rem;
-  color: #1f1f1f;
-  margin: 36px 0 12px;
-}
-
-/* Room Overview（冒頭のまとめ） */
-.room-overview {
-  background-color: #faf7f2; /* ごく薄いベージュ */
-  border-radius: 12px;
-  padding: 4px 20px 18px;
-  margin-bottom: 8px;
-}
-.room-overview .section-title {
-  margin-top: 20px;
-}
-.room-overview p {
-  color: #3a3a3a;
-  margin: 0;
-}
-
-/* ===== 商品カードのグリッド（自動で並ぶ） =====
-   auto-fit + minmax で、画面幅とカード数に合わせて自動で列数が変わります。
-   商品が3個でも8個でも、行が自然に折り返して崩れません。 */
-.products,
-.complete-look {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 16px;
-}
-
-/* 「Complete the Look」は小物なので、やや小さめのカードにする */
-.complete-look {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-}
-
-/* カード */
-.card {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  border: 1px solid #ece7df; /* 控えめなベージュの枠 */
-  border-radius: 12px;
-  padding: 16px;
-}
-
-.card h3 {
-  font-size: 1.1rem;
-  color: #1f1f1f;
-  margin: 4px 0 8px;
-}
-
-.card p {
-  margin: 0 0 16px;
-  color: #3a3a3a;
-  flex: 1; /* 説明文の長さが違ってもボタンの位置をそろえる */
-}
-
-/* Step 1 / Step 2 / Step 3 のラベル */
-.step-label {
+.eyebrow {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #a9895f;
-  margin: 12px 0 0 !important;
-  flex: none !important;
+  margin: 8px 0 6px;
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+  color: #1f1f1f;
+  margin: 0 0 14px;
+}
+
+.hero-lead {
+  color: #3a3a3a;
+  margin: 0 0 20px;
+}
+
+.hero-image {
+  aspect-ratio: 3 / 2;
+  margin-bottom: 12px;
+}
+
+.hero-note {
+  font-size: 0.92rem;
+  color: #6a6a6a;
+  margin: 0;
+}
+
+/* ===== セクション共通 ===== */
+.section {
+  margin-top: 40px;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  color: #1f1f1f;
+  margin: 0 0 12px;
+}
+
+/* ===== 2. 比較表 ===== */
+/* 横に長い表は、この枠の中だけ横スクロールします（ページ全体は崩れません） */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #ece7df;
+  border-radius: 12px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+  font-size: 0.95rem;
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid #ece7df;
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  background-color: #faf7f2;
+  color: #1f1f1f;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.compare-table td {
+  color: #3a3a3a;
+}
+
+/* 「Best Overall」などのラベル */
+.tag {
+  display: inline-block;
+  background-color: #f3efe8;
+  color: #6b5a42;
+  border: 1px solid #e3dacb;
+  border-radius: 999px;
+  padding: 3px 11px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tag-best {
+  background-color: #d8c7ad;
+  color: #2b2b2b;
+  border-color: #c9b593;
+}
+
+.table-note {
+  font-size: 0.88rem;
+  color: #6a6a6a;
+  margin: 10px 0 0;
+}
+
+/* ===== 3〜5. 商品ピック（Best Overall / Best Value / Budget Pick） ===== */
+.pick {
+  border-top: 1px solid #ece7df;
+  padding-top: 28px;
+}
+
+.pick-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a9895f;
+  margin: 0 0 4px;
+}
+
+.pick-label-best {
+  color: #8a6b3f;
+}
+
+/* 画像と文章を横並びに（狭い画面では自動で縦積み） */
+.pick-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+.pick-text p {
+  margin: 0 0 14px;
+  color: #3a3a3a;
+}
+
+.pick-text h3 {
+  font-size: 1.02rem;
+  color: #1f1f1f;
+  margin: 18px 0 8px;
+}
+
+.pick-text ul {
+  color: #3a3a3a;
+  padding-left: 1.2em;
+  margin: 0 0 18px;
+}
+
+.pick-text li {
+  margin: 6px 0;
 }
 
 /* 画像枠：images フォルダから読み込む。角丸・レスポンシブ・準備中表示 */
 .image-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;       /* 画像が来る前から高さを確保 → ガタつかない */
+  aspect-ratio: 2 / 3;
   border-radius: 10px;
   overflow: hidden;
   background-color: #f3efe8;
@@ -150,18 +233,69 @@ body {
   font-weight: 600;
   text-align: center;
   border: 1px solid #c9b593;
-  margin-top: auto; /* カード下端にそろえる */
 }
 
 .button:hover {
   background-color: #cbb894;
 }
 
-.complete-section > p {
-  color: #3a3a3a;
-  margin: 0;
+.button-large {
+  padding: 14px 26px;
+  font-size: 1.02rem;
 }
 
+/* ===== 6. FAQ ===== */
+.faq details {
+  border: 1px solid #ece7df;
+  border-radius: 10px;
+  padding: 0 16px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1f1f1f;
+  padding: 14px 0;
+  list-style: none;
+}
+
+/* 開閉マーク（＋ / −） */
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  float: right;
+  color: #a9895f;
+  font-weight: 700;
+  margin-left: 12px;
+}
+
+.faq details[open] summary::after {
+  content: "\2212";
+}
+
+.faq details p {
+  margin: 0 0 16px;
+  color: #3a3a3a;
+}
+
+/* ===== 7. CTA ===== */
+.cta {
+  background-color: #faf7f2;
+  border-radius: 12px;
+  padding: 24px 20px;
+}
+
+.cta p {
+  color: #3a3a3a;
+  margin: 0 0 18px;
+}
+
+/* ===== 補足・開示 ===== */
 .note {
   margin-top: 36px;
   font-size: 0.95rem;
@@ -183,7 +317,7 @@ body {
   margin: 0;
 }
 
-/* スマートフォン対応：カードは自動で1列になります */
+/* ===== スマートフォン対応 ===== */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
@@ -191,11 +325,17 @@ body {
   .page {
     padding: 18px 16px 40px;
   }
-  .intro h1 {
-    font-size: 1.4rem;
+  .hero h1 {
+    font-size: 1.42rem;
   }
-  .products,
-  .complete-look {
-    grid-template-columns: 1fr; /* 狭い画面では縦1列 */
+  .section {
+    margin-top: 32px;
+  }
+  .pick-body {
+    grid-template-columns: 1fr;
+  }
+  .button {
+    display: block;
+    width: 100%;
   }
 }
