@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://quietfieldliving.github.io/japandi-home-decor/sitemap.xml
