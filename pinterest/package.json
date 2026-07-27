@@ -1,0 +1,13 @@
+{
+  "name": "japandi-pinterest-pins",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pinterest用の縦長画像(1000x1500)をHTMLからPNGに書き出すツール",
+  "main": "export-pins.js",
+  "scripts": {
+    "export": "node export-pins.js"
+  },
+  "dependencies": {
+    "puppeteer": "^23.0.0"
+  }
+}
