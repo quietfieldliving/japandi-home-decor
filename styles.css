@@ -539,7 +539,7 @@ summary:focus-visible {
    （.image-frame の 2:3 指定より後ろ・高い詳細度なので、こちらが優先されます。
      既存トップページの .hero-image には影響しません） */
 .image-frame.hero-image-wide {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2; /* ヒーロー画像 1536x1024 と同じ比率にして、切れないようにする */
 }
 
 /* 商品カード内の「Best for」は伸ばさない（説明文だけを伸ばしてボタンを下端にそろえる） */

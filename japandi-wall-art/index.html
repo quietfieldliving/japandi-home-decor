@@ -109,13 +109,17 @@
       </p>
       <a class="button button-large" href="#quick-picks">See the Quick Picks</a>
 
-      <!-- TODO: ヒーロー画像が決まったら、この枠の中に <img> を入れる
-           例: <img src="../images/wall-art-001.png"
-                    alt="Japandi wall art in neutral tones above a low wooden console"
-                    width="1000" height="667" fetchpriority="high" decoding="async"
-                    onerror="this.classList.add('is-missing')"> -->
-      <figure class="image-frame hero-image hero-image-wide" role="img"
-              aria-label="Placeholder: Japandi wall art in neutral tones above a low wooden console"></figure>
+      <!-- ヒーロー画像（自前のローカル画像。Amazonの商品画像は使用していません）
+           ヒーローは最初に表示される画像なので、あえて lazy loading は使わず
+           eager + fetchpriority="high" で先に読み込ませています（表示速度対策）。
+           width / height を指定してレイアウトのガタつき（CLS）を防いでいます。 -->
+      <figure class="image-frame hero-image hero-image-wide">
+        <img src="../images/japandi-wall-art/hero-wall-art.png"
+             alt="Bright Japandi living room featuring neutral abstract wall art, natural wood furniture, and warm minimalist interior design."
+             width="1536" height="1024"
+             loading="eager" fetchpriority="high" decoding="async"
+             onerror="this.classList.add('is-missing')">
+      </figure>
     </div>
 
     <!-- ===== Quick Picks（商品カード3枚・すべて仮） ===== -->
