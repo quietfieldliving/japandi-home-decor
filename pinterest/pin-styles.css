@@ -506,3 +506,134 @@ html, body {
   height: 1px;
   background: rgba(102, 89, 77, 0.30);
 }
+
+/* ==========================================================================
+   image-004 : チェックリスト型（文字中心・左揃えのリスト）
+   ========================================================================== */
+.check-card {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid rgba(102, 89, 77, 0.20);
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(102, 89, 77, 0.10);
+  padding: 46px 52px 40px;
+  margin-top: 62px;
+  text-align: left;
+  z-index: 2;
+}
+
+.check-item {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(102, 89, 77, 0.14);
+}
+
+.check-item:last-child { border-bottom: none; padding-bottom: 4px; }
+
+.check-num {
+  font-family: var(--serif);
+  font-size: 40px;
+  color: var(--beige);
+  line-height: 1;
+  min-width: 62px;
+}
+
+.check-text {
+  font-family: var(--sans);
+  font-size: 31px;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 1.35;
+}
+
+.check-text span {
+  display: block;
+  font-size: 23px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   image-005 : 比較（左右2分割）型
+   ========================================================================== */
+.split-row {
+  display: flex;
+  gap: 26px;
+  width: 100%;
+  margin-top: 66px;
+  z-index: 2;
+}
+
+.split-panel {
+  flex: 1;
+  height: 620px;
+  border-radius: 8px;
+  border: 1px solid rgba(102, 89, 77, 0.18);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 56px;
+}
+
+/* 左：かたい白い光 */
+.split-cold {
+  background: linear-gradient(180deg, #EDEDEA 0%, #E2E2DE 100%);
+}
+
+/* 右：やわらかい暖色 */
+.split-warm {
+  background: linear-gradient(180deg, #F6E3C4 0%, #EFD3A6 100%);
+}
+
+.split-panel .lamp { position: relative; z-index: 2; }
+
+.split-panel .shade {
+  width: 148px;
+  height: 268px;
+  --grid: 40px;
+}
+
+.split-cold .shade {
+  background:
+    repeating-linear-gradient(to bottom,
+      rgba(102, 89, 77, 0.26) 0 2px, rgba(0,0,0,0) 2px var(--grid, 36px)),
+    linear-gradient(165deg, #FFFFFF 0%, #F4F4F2 100%);
+  box-shadow: 0 0 34px 8px rgba(255, 255, 255, 0.85);
+}
+
+.split-warm .shade {
+  box-shadow:
+    0 0 70px 22px rgba(247, 206, 132, 0.62),
+    0 0 150px 56px rgba(247, 206, 132, 0.30);
+}
+
+.split-panel .stem { height: 48px; }
+.split-panel .base { width: 106px; height: 12px; }
+
+.split-label {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brown);
+  z-index: 3;
+}
+
+.split-caption {
+  margin-top: 26px;
+  font-family: var(--sans);
+  font-size: 27px;
+  color: var(--gray);
+  z-index: 2;
+}
