@@ -207,7 +207,7 @@ li { margin: 8px 0; }
 }
 
 .frame::after {
-  content: "Image coming soon";
+  content: "";
   position: absolute;
   inset: 0;
   display: flex;
@@ -416,4 +416,14 @@ details p { margin: 0 0 16px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }   /* respect users who disable motion */
   * { animation: none !important; transition: none !important; }
+}
+
+/* ===== Affiliate disclosure (near Top Picks CTAs) ===== */
+.affiliate-note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 6px 0 2px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-radius: 8px;
 }

@@ -240,7 +240,7 @@ summary:focus-visible {
 }
 
 .image-frame::after {
-  content: "Image coming soon";
+  content: "";
   position: absolute;
   inset: 0;
   display: flex;
@@ -546,4 +546,15 @@ summary:focus-visible {
 .product-card .best-for {
   flex: none;
   font-size: 0.95rem;
+}
+
+/* ===== Affiliate disclosure (near CTAs) ===== */
+.affiliate-note {
+  font-size: 0.88rem;
+  color: #6f675c;
+  margin: 0 0 6px;
+  padding: 10px 14px;
+  background: #f6f2ea;
+  border: 1px solid #ece7df;
+  border-radius: 8px;
 }
