@@ -190,54 +190,68 @@ Do not use Amazon product images.
 
 ---
 
-## 7. Existing Completed Pages
+## 7. Current Project Status (updated 2026-08-11)
 
-Completed category pages include:
+Initial build is complete.
 
-- Shoji Floor Lamps
-- Japandi Wall Art
-- Japandi Table Lamps
-- Japandi Floor Lamps
-- Japandi Ceiling Lights
-- Japandi Rugs
-- Japandi Coffee Tables
+- Landing pages: 20 / 20 published
+- Amazon product links: 60 / 60 (three per landing page)
+- Pinterest Pins: 100 / 100
+- Internal linking: standardized site-wide (every page's header nav reaches all 20 categories + the Shoji Floor Lamps home page)
+- Homepage: reflects all 20 categories (header nav + "More Japandi Guides" card grid)
+- sitemap.xml: final, 21 URLs (home + 20 categories), no duplicates
+- Product-card images: still `Image coming soon` on every page. Real product images are a **separate future task** — do not scrape or hotlink Amazon images.
+- Next phase: analytics / measurement (traffic, clicks, Pinterest performance), then iterate.
 
-Existing repository folders include:
+### Published categories (20)
 
-- japandi-wall-art
-- japandi-table-lamps
-- japandi-floor-lamps
-- japandi-ceiling-lights
-- japandi-rugs
-- japandi-coffee-tables
+The home page (root `index.html`) is the **Shoji Floor Lamps** guide and also acts as the site home.
 
-Before creating a new page, inspect the repository and confirm the actual current structure.
+| # | Category | Slug |
+|---|----------|------|
+| — | Shoji Floor Lamps (home) | `/` (root `index.html`) |
+| 1 | Japandi Wall Art | japandi-wall-art |
+| 2 | Japandi Table Lamps | japandi-table-lamps |
+| 3 | Japandi Floor Lamps | japandi-floor-lamps |
+| 4 | Japandi Ceiling Lights | japandi-ceiling-lights |
+| 5 | Japandi Rugs | japandi-rugs |
+| 6 | Japandi Coffee Tables | japandi-coffee-tables |
+| 7 | Japandi Dining Tables | japandi-dining-tables |
+| 8 | Japandi Sofas | japandi-sofas |
+| 9 | Japandi Bed Frames | japandi-bed-frames |
+| 10 | Japandi Nightstands | japandi-nightstands |
+| 11 | Japandi Dressers | japandi-dressers |
+| 12 | Japandi Bookshelves | japandi-bookshelves |
+| 13 | Japandi Dining Chairs | japandi-dining-chairs |
+| 14 | Japandi Accent Chairs | japandi-accent-chairs |
+| 15 | Japandi Side Tables | japandi-side-tables |
+| 16 | Japandi Benches | japandi-benches |
+| 17 | Japandi Console Tables | japandi-console-tables |
+| 18 | Japandi Storage Cabinets | japandi-storage-cabinets |
+| 19 | Japandi Shoe Cabinets | japandi-shoe-cabinets |
+| 20 | Japandi Bar Stools | japandi-bar-stools |
 
-Do not rely only on this list if the repository contains newer pages.
+Two page templates exist and must be preserved:
+
+- **Home template** (`styles.css`, `header.site-header` + `nav.site-nav`): the root `index.html` and `japandi-wall-art/` only.
+- **Category template** (per-page `style.css`, `header.site-header` + `nav.nav`, hero via `<picture>` WebP-first, `.related` "You may also like"): the other 18 categories.
+
+Before creating or editing a page, inspect the actual repository — do not rely only on this list.
 
 ---
 
 ## 8. Next Planned Category
 
-Next planned category:
+All 20 planned categories are built and published. There is no next category queued.
 
-Japandi Dining Tables
+The project has moved from **building** to **measuring**: analytics, click tracking, and Pinterest performance, then iteration on the existing 20 pages (copy, images, internal links).
 
-External image folder:
+If a new category is ever requested:
 
-JapandiDiningTables
-
-Expected repository folder:
-
-japandi-dining-tables
-
-Preferred template:
-
-japandi-coffee-tables
-
-The current next category may later change.
-
-Always follow the latest explicit user instruction over this section.
+- Use the **category template** (copy the most recent category page, e.g. `japandi-bar-stools`).
+- Add it to the header nav on every page and to the home page card grid.
+- Add its URL to `sitemap.xml`.
+- Follow the latest explicit user instruction over this section.
 
 ---
 
@@ -779,31 +793,27 @@ Do not use fake scarcity.
 
 ## 25. Current Asset Count Reference
 
-At the end of the Japandi Coffee Tables cycle, the project had approximately:
+Initial build complete (2026-08-11):
 
-- 7 landing pages
-- 35 Pinterest Pins
-- 21 Amazon product links
+- 20 landing pages (20 / 20)
+- 60 Amazon product links (60 / 60 — three per page)
+- 100 Pinterest Pins (100 / 100)
 
-These numbers are historical reference points, not permanent truth.
+Site-finishing done: internal links standardized across all pages, home page reflects all 20 categories, sitemap finalized.
 
-Inspect the repository and Pinterest records before reporting current totals.
+Still open: product-card images are `Image coming soon` on every page (separate future task).
+
+Inspect the repository and Pinterest records before reporting new totals.
 
 ---
 
 ## 26. Planned Category Direction
 
-Current expansion direction includes categories such as:
+The initial 20-category set is complete (see Section 7). No further categories are planned for now — the focus has shifted to analytics/measurement and to improving the existing 20 pages (product images, copy, internal links).
 
-- Japandi Dining Tables
-- Japandi Sofas
-- Japandi Shelves
-- Japandi TV Stands
-- Japandi Side Tables
+Do not create new categories automatically.
 
-Do not create these automatically.
-
-Create only the category explicitly requested.
+Create only a category that is explicitly requested, and if so follow Section 8.
 
 ---
 
