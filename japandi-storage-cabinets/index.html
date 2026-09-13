@@ -525,5 +525,29 @@
   </div>
 </footer>
 
+<!-- amazon_click tracking (GA4) -->
+<script>
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('a');
+    if (!link || !link.href) return;
+    try {
+      var url = new URL(link.href, window.location.href);
+      var domain = url.hostname.replace(/^www\./, '');
+      var isAmazon =
+        domain === 'amzn.to' ||
+        domain === 'amazon.com' ||
+        domain.endsWith('.amazon.com');
+      if (!isAmazon) return;
+      if (typeof gtag === 'function') {
+        gtag('event', 'amazon_click', {
+          link_url: link.href,
+          link_domain: domain,
+          page_location: window.location.href,
+          page_title: document.title
+        });
+      }
+    } catch (e) {}
+  });
+</script>
 </body>
 </html>
