@@ -260,6 +260,29 @@ li { margin: 8px 0; }
 
 .btn-card { margin-top: auto; padding: 11px 18px; }
 
+/* Secondary "shop more" CTA under Top Picks — outlined so it stays quieter
+   than the filled product-card buttons. Page-scoped only. */
+.more-cta {
+  text-align: center;
+  margin: 40px 0 8px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  font-weight: 500;
+  padding: 11px 22px;
+  max-width: 100%;
+}
+
+.btn-secondary:hover { background: var(--surface); }
+
+.more-cta-note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
 /* Hero CTA — centred under the banner, quiet enough to sit in a Japandi page */
 .hero-cta {
   text-align: center;
