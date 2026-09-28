@@ -275,6 +275,12 @@
 
       </div>
 
+      <!-- ---------- More options : Amazon search results (test CTA, tag qflbarsearch-20) ---------- -->
+      <div class="more-cta">
+        <a class="btn btn-secondary" href="https://link.amazon/B08JFJLlT" target="_blank" rel="nofollow sponsored noopener">Shop More Japandi-Style Bar Stools on Amazon</a>
+        <p class="more-cta-note">See more options currently available on Amazon.</p>
+      </div>
+
       <p class="micro">
         Prices and availability change often &mdash; check current details on the retailer
         page before buying.
@@ -528,6 +534,7 @@
       var domain = url.hostname.replace(/^www\./, '');
       var isAmazon =
         domain === 'amzn.to' ||
+        domain === 'link.amazon' ||
         domain === 'amazon.com' ||
         domain.endsWith('.amazon.com');
       if (!isAmazon) return;
