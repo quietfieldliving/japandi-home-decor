@@ -91,6 +91,7 @@
   ]
 }
 </script>
+  <link rel="stylesheet" href="../lead-magnet.css">
 </head>
 <body>
 
@@ -544,6 +545,25 @@
   </div>
 </main>
 
+<section class="qfl-lead" aria-labelledby="qfl-lead-title">
+  <div class="qfl-lead-inner">
+    <p class="qfl-lead-eyebrow">Free 4-page checklist</p>
+    <h2 id="qfl-lead-title">Plan a calmer Japandi room before you buy</h2>
+    <p class="qfl-lead-copy">Get the Japandi Room Setup Checklist: a simple guide for room measurements, layout, materials, lighting, and buying decisions.</p>
+    <form data-qfl-checklist novalidate>
+      <label class="qfl-field-label" for="qfl-email">Email address</label>
+      <div class="qfl-field-row">
+        <input id="qfl-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+        <button type="submit">Send me the checklist</button>
+      </div>
+      <input class="qfl-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="qfl-optin"><input type="checkbox" name="marketing_opt_in"><span>Send me occasional Japandi room ideas and buying guides. Optional.</span></label>
+      <p class="qfl-lead-note">Checklist delivery is transactional. Marketing emails are optional.</p>
+      <p class="qfl-lead-status" data-qfl-status aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="wrap">
     <p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
@@ -575,5 +595,6 @@
     } catch (e) {}
   });
 </script>
+<script src="../lead-magnet.js" defer></script>
 </body>
 </html>
