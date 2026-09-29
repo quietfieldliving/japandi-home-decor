@@ -887,3 +887,122 @@ Validate thoroughly.
 Report honestly.
 
 Consistency first.
+
+
+---
+
+## 27. Lead Capture and Email Funnel (updated 2026-09-29)
+
+A site-wide email lead funnel is now part of the project.
+
+### Lead magnet
+
+Free resource:
+
+- **Japandi Room Setup Checklist**
+- 4-page PDF
+- Repository file: `downloads/japandi-room-setup-checklist.pdf`
+- Public URL: `https://quietfieldliving.github.io/japandi-home-decor/downloads/japandi-room-setup-checklist.pdf`
+
+### Site-wide signup assets
+
+Shared files:
+
+- `lead-magnet.css`
+- `lead-magnet.js`
+- `privacy.html`
+
+The checklist signup form is installed across the home page and all 20 category guides.
+
+Do not duplicate the form JavaScript inside individual pages. Maintain the shared `lead-magnet.js` file instead.
+
+The form has:
+
+- Required email field
+- Optional marketing opt-in checkbox
+- Honeypot bot field
+- Inline success/error state
+- GA4 event on successful submission: `lead_submit`
+- Lead type: `japandi_checklist`
+
+### Cloudflare Worker
+
+Worker name:
+
+`qfl-checklist-signup`
+
+Production endpoint:
+
+`https://qfl-checklist-signup.ai4221918.workers.dev/subscribe`
+
+Responsibilities:
+
+1. Accept checklist signup POST requests.
+2. Validate email.
+3. Reject disallowed origins.
+4. Ignore honeypot submissions.
+5. Create or update the Resend contact.
+6. Add the contact to the checklist lead segment.
+7. Store the optional marketing preference.
+8. Trigger the checklist-delivery event.
+
+The Resend credential is stored only as a Cloudflare secret named:
+
+`RESEND_API_KEY`
+
+Never hard-code the API key in the repository.
+
+### Resend
+
+Verified sending domain:
+
+`quietfieldliving.com`
+
+Transactional sender:
+
+`Quiet Field Living <hello@quietfieldliving.com>`
+
+Lead segment:
+
+`Japandi Checklist Leads`
+
+Trigger event:
+
+`lead.japandi_checklist_requested`
+
+Transactional template:
+
+`Japandi Checklist Delivery`
+
+Automation:
+
+`Japandi Checklist Delivery`
+
+Status:
+
+- Transactional checklist delivery: **enabled**
+- Tested end to end on 2026-09-29
+- Test flow returned HTTP 200
+- Resend contact creation succeeded
+- Checklist email reached delivered status
+
+### Marketing follow-up sequence
+
+Three follow-up templates exist in Resend as drafts:
+
+1. `Japandi Follow-up 1 - Measure First`
+2. `Japandi Follow-up 2 - Storage First`
+3. `Japandi Follow-up 3 - Three Decisions`
+
+Do **not** publish or enable these marketing emails until a valid business mailing address has been supplied for the required footer and the final sequence has been reviewed.
+
+The optional marketing checkbox must remain optional. A user must still receive the requested checklist even when the marketing checkbox is left unchecked.
+
+### Maintenance rules
+
+- Keep checklist delivery transactional.
+- Do not automatically subscribe checklist requesters to marketing without explicit opt-in.
+- Keep `lead-magnet.css` and `lead-magnet.js` shared across pages.
+- Do not expose Resend API credentials in HTML, JavaScript, GitHub, screenshots, or documentation.
+- If the Worker code changes, update both the Cloudflare Worker and `cloudflare-worker/subscribe.js` in the repository so they stay aligned.
+- Preserve the existing Amazon affiliate disclosures and `amazon_click` GA4 tracking.
