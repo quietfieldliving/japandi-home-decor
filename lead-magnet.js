@@ -7,6 +7,10 @@
     var company = form.querySelector('input[name="company"]');
     var button = form.querySelector('button[type="submit"]');
     var status = form.querySelector('[data-qfl-status]');
+    var note = form.querySelector('.qfl-lead-note');
+    if (note && !note.querySelector('a')) {
+      note.insertAdjacentHTML('beforeend', ' <a href="https://quietfieldliving.github.io/japandi-home-decor/privacy.html">Privacy policy</a>.');
+    }
 
     form.addEventListener('submit', async function (event) {
       event.preventDefault();
