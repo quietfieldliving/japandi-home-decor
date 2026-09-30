@@ -38,6 +38,8 @@ Japanese
 
 Read this file before making any changes.
 
+For current growth priorities, baselines, and active tests, also read `EXPERIMENTS.md` before changing conversion paths.
+
 Do not redesign the website.
 
 Do not invent a new structure when an existing page can be reused.
