@@ -232,6 +232,13 @@
 
       <p class="affiliate-note">The links below are affiliate links. As an Amazon Associate, Quiet Field Living earns from qualifying purchases &mdash; at no extra cost to you.</p>
 
+      <!-- Priority browse-more route: placed before product cards to give the
+           international-availability experiment enough exposure to measure. -->
+      <div class="more-cta more-cta-priority">
+        <a class="btn btn-secondary priority-amazon-search" href="https://link.amazon/B08JFJLlT" target="_blank" rel="nofollow sponsored noopener">Browse More Japandi-Style Bar Stools on Amazon</a>
+        <p class="more-cta-note">Featured picks may not be available in every country. Browse more options on Amazon.</p>
+      </div>
+
       <div class="cards">
 
         <!-- ---------- Product 1 : Best Overall ----------
@@ -562,6 +569,8 @@
         gtag('event', 'amazon_click', {
           link_url: link.href,
           link_domain: domain,
+          link_text: (link.textContent || '').trim(),
+          link_classes: link.className || '',
           page_location: window.location.href,
           page_title: document.title
         });
