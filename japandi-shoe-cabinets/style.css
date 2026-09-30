@@ -270,6 +270,13 @@ li { margin: 8px 0; }
   margin: 40px 0 8px;
 }
 
+.more-cta-priority {
+  margin: 22px 0 30px;
+  padding: 18px;
+  background: var(--surface);
+  border-radius: 10px;
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--ink);
