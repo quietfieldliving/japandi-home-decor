@@ -197,3 +197,27 @@ Current state:
 - No paid virtual-office/address service should be added just to activate those three marketing emails at this stage
 
 The paused marketing sequence must not block Amazon/Pinterest experiments.
+
+
+## Pinterest distribution recovery — activated 2026-10-02
+
+The prior "do not change Pinterest during the Priority CTA observation window" rule is superseded for **Pinterest publishing only** because account-level organic distribution collapsed.
+
+Observed daily Pinterest Organic impressions:
+
+- 2026-09-24: 9,378
+- 2026-09-25: 4,214
+- 2026-09-26: 686
+- 2026-09-27: 432
+- 2026-09-28: 401
+- 2026-09-29: 697
+- 2026-09-30: 125
+
+Action:
+
+- Keep LP layout, product cards and Priority Amazon CTA unchanged.
+- Start a 14-day fresh-Pin recovery sprint.
+- Publish 2 genuinely new creatives per day.
+- Use `PINTEREST_RECOVERY.md` and `pinterest-recovery-queue.csv` as the active publishing plan.
+- Do not reuse near-identical old images.
+- Review account-level recovery after 7 and 14 days.
