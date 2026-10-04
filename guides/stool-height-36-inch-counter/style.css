@@ -492,4 +492,5 @@ figcaption { margin-top: 12px; }
   .table-scroll tr { border-bottom: 1px solid var(--line); padding: 12px 0; }
   .table-scroll th, .table-scroll td { border-bottom: 0; padding: 4px 0; }
   .table-scroll td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--ink); }
+  .table-scroll th[scope="row"]::before { content: "Seat height: "; font-weight: 600; color: var(--ink); }
 }
