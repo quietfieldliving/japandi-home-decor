@@ -29,7 +29,7 @@ Read-only query on 2026-10-04, property Quiet Field Living, period 2026-07-06 th
 
 The same window queried with eventName = amazon_click, grouped by sessionSourceMedium and landingPage, returned no Google-organic row. Do not interpret this as a universal absence of clicks outside the recorded dataset. It is not an Amazon order report.
 
-Search Console through Supermetrics is not authenticated. Current Google indexing and impressions are unknown. Need the correct URL-prefix property and Search Console performance data before launch; Supermetrics search analytics cannot by itself replace URL Inspection/Page Indexing reports.
+Search Console authenticated on 2026-10-04; the correct URL-prefix property was discovered. Search performance is now available. URL Inspection/Page Indexing status remains unverified.
 
 ## Prototype content and method
 
@@ -87,3 +87,23 @@ GitHubのsearch-growth/36-inch-counter-prototypeブランチを確認し、guide
 試作はnoindexのまま維持し、sitemap追加、IndexNow通知、mainへのマージ、公開、残り11ページ制作はまだ行わないでください。
 修正が必要なら、この新規ページ内だけで修正し、差分と検証結果を日本語で報告してください。
 ```
+
+
+## Search Console baseline: retrieved 2026-10-04
+
+Requested window: 2026-07-06 through 2026-10-03, finalized data only. Daily output begins 2026-07-26 and ends 2026-09-29; do not claim complete 90-day coverage or treat missing later days as zero.
+
+| Search type | Impressions | Clicks | CTR (reported, rounded) | Average position |
+|---|---:|---:|---:|---:|
+| WEB | 119 | 2 | 1.68% | 14.0588 |
+| IMAGE | 792 | 1 | 0.13% | 63.8838 |
+
+Page rows: Bar Stools WEB 110 impressions / 2 clicks / position 14.8364; home WEB 9 / 0 / 4.5556. IMAGE: home 447 / 1 / 72.5615; Bar Stools 345 / 0 / 52.6406. No Shoe Cabinets or Dining Chairs row returned. Absence of performance is NOT proof of exclusion from the index.
+
+Named WEB query japandi bar stools: 34 impressions / 1 click / average position 11.8235; japandi bar stool: 14 / 0 / 13.1429. Unknown query rows contain additional impressions and clicks; do not infer a full keyword list from named rows.
+
+US: WEB 41 impressions / 0 clicks / position 15.2683; IMAGE 138 / 0 / 58.5435. The two WEB clicks were reported in GBR and MEX; the image click in CAN. These tiny samples do not establish US monetization.
+
+SITEMAPS report: sitemap.xml lastSubmitted 2026-09-12, lastDownloaded 1970-01-01, submitted FALSE, indexed FALSE, errors 0, warnings 0. These sentinel/type-mismatched values do not prove zero indexed pages or a successful fetch. Need direct Search Console UI/URL Inspection review; public sitemap HTTP 200 alone does not prove Google retrieved it.
+
+Decision: retain Bar Stools as first prototype; do not expand to remaining 11 pages until index coverage and sitemap processing are checked. Noindex prototype and draft PR remain unchanged. Existing LPs and Pinterest files untouched.
