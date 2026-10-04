@@ -1,12 +1,12 @@
 # Search Growth — isolated support-page experiment
 
-## Status: prototype, not published
+## Status: release-prepared on the prototype branch, not yet published
 
 Prepared on 2026-10-04. One support page only:
 
 `guides/stool-height-36-inch-counter/`
 
-The prototype has `noindex, follow`. It is not in sitemap.xml, and no existing page links to it. No production Pages deployment or IndexNow submission has been requested. Do not merge the draft PR until the prototype and measurement isolation are reviewed.
+Release preparation (2026-10-04, see "Release preparation" below): the page now has `index, follow`, a planned publication date of **2026-10-04**, and one sitemap.xml entry. It is still only on `search-growth/36-inch-counter-prototype`; nothing is live until the PR is merged to `main` and GitHub Pages deploys. No existing page links to it. No IndexNow submission has been made.
 
 ## Protected experiment
 
@@ -107,3 +107,66 @@ US: WEB 41 impressions / 0 clicks / position 15.2683; IMAGE 138 / 0 / 58.5435. T
 SITEMAPS report: sitemap.xml lastSubmitted 2026-09-12, lastDownloaded 1970-01-01, submitted FALSE, indexed FALSE, errors 0, warnings 0. These sentinel/type-mismatched values do not prove zero indexed pages or a successful fetch. Need direct Search Console UI/URL Inspection review; public sitemap HTTP 200 alone does not prove Google retrieved it.
 
 Decision: retain Bar Stools as first prototype; do not expand to remaining 11 pages until index coverage and sitemap processing are checked. Noindex prototype and draft PR remain unchanged. Existing LPs and Pinterest files untouched.
+
+
+## Quality review: 2026-10-04
+
+Reviewed in a separate worktree of the prototype branch, served locally at `127.0.0.1`, in a desktop browser at 1280px and an emulated 390px mobile viewport (page zoom 100%). Fix commits: `115f1a7` (mobile layout and diagrams), `cb4513e` (mobile "Seat height:" label).
+
+Passed after fixes:
+
+- No horizontal page overflow at 1280px or 390px; one H1; logical H2 order.
+- Sources re-checked 2026-10-04: Wayfair states 24"–26" seats for a 36" counter and 10"–12" between seat and counter underside; Nathan James states 24–27 inches. Table arithmetic, metric rounding, worked example (10.5 / 8.5 / 8 in) and diagram scale are consistent.
+- Title, H1, description, self canonical, OG/Twitter, Article and BreadcrumbList parse; no Product/Review/Rating/FAQ schema. Image alt matches the diagram; SVG and OG PNG are 1200×675.
+- All six local internal links return 200; the primary CTA navigates to Bar Stools.
+- `support_to_money`: with gtag stubbed and the gtag.js loader blocked, all five Bar Stools links (header, breadcrumb, context, primary, related) emitted the expected parameters; non-money links emitted nothing. On a local host the page loads no gtag and sends nothing.
+
+Fixed during review (inside the guide directory only):
+
+- Desktop diagram labels were about 6–7px on a 390px screen. Added a portrait mobile SVG served via `<picture>` at max-width 640px.
+- "34.5 in underside" was placed above the top surface. The labels now read "Top surface: 36 in" and "Underside: 34.5 in (example)". The OG PNG was re-rendered from the corrected SVG.
+- At 390px the table clipped its third column and the "not underside clearance" caption. At 640px and below, rows now stack as labeled cards, including "Seat height:". The desktop table is unchanged.
+- Added `og:image:width`/`height` and the same Google Fonts link the category pages use.
+
+Not verified: real iOS/Android devices, VoiceOver handling of the stacked table, live GA4 ingestion, and the public HTTP response.
+
+Analytics incident: during the review, the existing Bar Stools page was opened once from `127.0.0.1:8765`. That page always loads GA4, so it sent **one `page_view` with hostname `127.0.0.1`** to the production property on 2026-10-04 (JST). Exclude hostname `127.0.0.1` / `localhost` from analysis; it is not real traffic. Do not open existing LPs on a local server during QA.
+
+## Release preparation: 2026-10-04
+
+Changes on the prototype branch:
+
+- `<meta name="robots">` changed from `noindex, follow` to `index, follow`.
+- Article JSON-LD: `datePublished` and `dateModified` = `2026-10-04`. A visible "Published October 4, 2026" line sits under the H1.
+- sitemap.xml: added exactly one `<url>` for `https://quietfieldliving.github.io/japandi-home-decor/guides/stool-height-36-inch-counter/` with `lastmod` 2026-10-04. Existing URLs and existing lastmod values are unchanged (22 unique URLs).
+- No link from any existing LP or the home page. Whether to add one is a separate decision because it touches the Pinterest experiment pages. Until then, discovery depends on the sitemap and URL Inspection.
+
+**Date dependency:** 2026-10-04 is the *planned* publication date. If the merge/deploy happens on a different day, update all four together before or with the merge: `datePublished`, `dateModified`, the visible `<time datetime>`, and the sitemap `lastmod`. Record the actual release date here. Per the release gates above, this is page 1 of 12; log its individual release date.
+
+## Post-publication checks
+
+Run after the PR is merged to `main` and GitHub Pages has deployed.
+
+Public deployment:
+
+1. `https://quietfieldliving.github.io/japandi-home-decor/guides/stool-height-36-inch-counter/` returns 200 and serves `index, follow`.
+2. style.css, support-tracking.js, both SVGs and the PNG return 200.
+3. The live sitemap.xml contains the new URL once and still parses.
+
+GA4 (property Quiet Field Living, `G-JQ7SQ8TM4Z`):
+
+1. Open the live page with GA DebugView enabled (Tag Assistant or the GA debugger extension). Confirm a `page_view` with page_location on the guide path and hostname `quietfieldliving.github.io`.
+2. Click one Bar Stools link. In DebugView, confirm `support_to_money` with `support_page_id=stool-height-36-inch-counter`, `money_page_path=/japandi-home-decor/japandi-bar-stools/`, a `link_placement` value and `link_url`. Then confirm the Bar Stools `page_view` follows.
+3. Do not click Amazon links during this test. Treat these as developer test events, not growth, and note the test time here.
+4. After 24–48 hours, confirm the event appears in standard reports. Optionally register `support_page_id`, `money_page_path` and `link_placement` as event-scoped custom dimensions. They are not registered yet.
+5. Keep filtering hostname `127.0.0.1` / `localhost` (see the analytics incident above).
+
+Search Console (URL-prefix property for `https://quietfieldliving.github.io/japandi-home-decor/`):
+
+1. URL Inspection → Test live URL: page fetchable, indexing allowed (no noindex), user-declared canonical = self.
+2. Request indexing once.
+3. Sitemaps: resubmit `sitemap.xml`, then record status, last read date and discovered URL count. The earlier SITEMAPS API values were inconclusive.
+4. Page indexing: check the guide URL and the existing focus URLs (Bar Stools, Dining Chairs, Shoe Cabinets) for coverage status.
+5. After 1–2 weeks, Performance filtered to the guide page: record impressions, clicks, queries and countries against the baseline above. Do not treat the absence of rows as non-indexing.
+
+Still not done (by decision): IndexNow / Bing registration, any existing-page link to the guide, and the remaining 11 pages.
