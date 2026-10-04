@@ -1,12 +1,12 @@
 # Search Growth — isolated support-page experiment
 
-## Status: release-prepared on the prototype branch, not yet published
+## Status: page 1 published on 2026-10-04
 
-Prepared on 2026-10-04. One support page only:
+One support page only:
 
 `guides/stool-height-36-inch-counter/`
 
-Release preparation (2026-10-04, see "Release preparation" below): the page now has `index, follow`, a planned publication date of **2026-10-04**, and one sitemap.xml entry. It is still only on `search-growth/36-inch-counter-prototype`; nothing is live until the PR is merged to `main` and GitHub Pages deploys. No existing page links to it. No IndexNow submission has been made.
+Published on **2026-10-04** by merging PR #1 (see "Publication record" below). Live URL: https://quietfieldliving.github.io/japandi-home-decor/guides/stool-height-36-inch-counter/ (`index, follow`, in sitemap.xml). No existing page links to it. No IndexNow submission has been made. The remaining 11 pages have not been built.
 
 ## Protected experiment
 
@@ -170,3 +170,35 @@ Search Console (URL-prefix property for `https://quietfieldliving.github.io/japa
 5. After 1–2 weeks, Performance filtered to the guide page: record impressions, clicks, queries and countries against the baseline above. Do not treat the absence of rows as non-indexing.
 
 Still not done (by decision): IndexNow / Bing registration, any existing-page link to the guide, and the remaining 11 pages.
+
+
+## Publication record: 2026-10-04
+
+Release date: **2026-10-04**. This matches the planned date, so `datePublished`, `dateModified`, the visible `<time>` and the sitemap `lastmod` need no change. This is page 1 of 12; the 90-day clock rule in "Release gates" still applies.
+
+- PR #1 (`search-growth/36-inch-counter-prototype`) merged to `main`. Merge commit: `0ffeae3b008cba05074f71ce0af31786f0601d41`. The merge added only the guide directory and SEARCH_GROWTH.md, plus one sitemap.xml entry (+5 / −0). No existing LP, Amazon link, Pinterest file or tracking code changed.
+- GitHub Pages "pages build and deployment" for `0ffeae3`: completed / success.
+- Public checks (curl, no browser visit, no Amazon clicks):
+  - The page, style.css, support-tracking.js, the desktop SVG, the mobile SVG and the OG PNG all return HTTP 200.
+  - No noindex, in either the meta robots tag (`index, follow`) or the response headers.
+  - The canonical and og:url equal the live URL.
+  - The live sitemap.xml parses with 22 unique URLs and contains the guide URL exactly once.
+
+Search Console (times are JST):
+
+- ~18:22: URL Inspection live test of the new page succeeded.
+- ~18:23: Indexing request accepted. Indexing itself is **not yet confirmed**.
+- The Search Console sitemap fetch error is **unresolved**. A public HTTP 200 for sitemap.xml does not prove Google read it.
+
+GA4:
+
+- ~18:25–18:28 JST: one `support_to_money` event observed, with `link_placement=primary`.
+- That click was the operator's own verification, **not search traffic**. Exclude it, and the earlier `127.0.0.1` page_view, from search-growth results.
+
+Open items:
+
+- Sitemap fetch error in Search Console: unresolved.
+- No link from any existing LP to the guide. The decision is pending because of the Pinterest experiment.
+- Amazon orders and earnings cannot yet be separated by search traffic, because the exit links share the existing tracking IDs.
+- Remaining 11 pages: not built.
+- IndexNow / Bing: not submitted.
