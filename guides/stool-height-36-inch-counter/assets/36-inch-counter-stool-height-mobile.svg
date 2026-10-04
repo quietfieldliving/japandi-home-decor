@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800" role="img" aria-labelledby="title desc">
+<title id="title">A 36-inch counter and a 24-inch stool: measure top height and underside clearance separately</title>
+<desc id="desc">Illustrative side view for small screens. Countertop is 36 inches above the floor; its underside is 34.5 inches in this example. A 24-inch seat leaves a 12-inch top-height difference and 10.5 inches of actual underside clearance. The countertop thickness is an example, not a standard.</desc>
+<defs><marker id="arrow-m" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#8a6b3f" stroke-width="1.5"/></marker></defs>
+<rect width="600" height="800" fill="#f7f6f4"/>
+<g font-family="Arial,sans-serif" fill="#1c1c1c"><text x="28" y="50" font-size="28">36-inch counter: check the gap</text><text x="28" y="84" font-size="20" fill="#6b6b6b">Side-view example • not a product drawing</text></g>
+<path d="M20 700H580" stroke="#b8b2a8" stroke-width="3"/>
+<rect x="90" y="196" width="330" height="21" rx="3" fill="#d8c7ad" stroke="#8a6b3f" stroke-width="2"/>
+<rect x="90" y="217" width="110" height="483" fill="#e6e4e0"/>
+<rect x="270" y="364" width="130" height="18" rx="9" fill="#d8c7ad" stroke="#8a6b3f" stroke-width="2"/>
+<path d="M285 382L272 700M385 382L400 700M277 600H396" fill="none" stroke="#8a6b3f" stroke-width="9"/>
+<g fill="none" stroke="#8a6b3f" stroke-width="2" marker-start="url(#arrow-m)" marker-end="url(#arrow-m)"><path d="M55 202V694"/><path d="M450 223V358"/><path d="M450 370V694"/></g>
+<g stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="6 6"><path d="M420 217H470"/><path d="M400 364H470"/></g>
+<g font-family="Arial,sans-serif" fill="#1c1c1c"><text x="40" y="530" font-size="24" transform="rotate(-90 40 530)">36 in to countertop</text><text x="90" y="182" font-size="21">Top surface: 36 in</text><text x="210" y="252" font-size="21">Underside: 34.5 in</text><text x="210" y="278" font-size="21" fill="#6b6b6b">(example)</text><text x="466" y="286" font-size="28">10.5 in</text><text x="466" y="316" font-size="21">usable gap</text><text x="466" y="530" font-size="28">24 in</text><text x="466" y="560" font-size="21">to seat</text><text x="28" y="748" font-size="21">36 − 24 = 12 in top-height difference</text><text x="28" y="780" font-size="21">34.5 − 24 = 10.5 in usable gap</text></g>
+</svg>

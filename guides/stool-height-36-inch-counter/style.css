@@ -483,3 +483,13 @@ figcaption { margin-top: 12px; }
 .skip-link:focus { top: 12px; }
 @media (max-width: 480px) { .wrap { padding-left: 20px; padding-right: 20px; } .answer, .buying-next { padding: 18px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.measurement-figure picture { display: block; }
+@media (max-width: 640px) {
+  .table-scroll { overflow-x: visible; }
+  .table-scroll table { min-width: 0; }
+  .table-scroll thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .table-scroll table, .table-scroll caption, .table-scroll tbody, .table-scroll tr, .table-scroll th, .table-scroll td { display: block; }
+  .table-scroll tr { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .table-scroll th, .table-scroll td { border-bottom: 0; padding: 4px 0; }
+  .table-scroll td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--ink); }
+}
