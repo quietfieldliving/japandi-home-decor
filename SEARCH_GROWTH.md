@@ -202,3 +202,30 @@ Open items:
 - Amazon orders and earnings cannot yet be separated by search traffic, because the exit links share the existing tracking IDs.
 - Remaining 11 pages: not built.
 - IndexNow / Bing: not submitted.
+
+
+## Sitemap read-error isolation: text-format comparison (created 2026-10-08)
+
+Background:
+
+- The existing `sitemap.xml` returns HTTP 200 with `application/xml` and parses as valid XML.
+- Its 22 URLs have no duplicates and all return HTTP 200.
+- The new guide is registered in Google and has appeared in search results.
+- 2026-10-06: Search Console live test of the sitemap URL was normal, and `sitemap.xml` was resubmitted.
+- 2026-10-08: the Search Console Sitemaps screen still shows "Sitemap could not be read", last read 2026-10-06, 0 discovered pages.
+- The cause is not determined.
+
+Purpose: compare formats. A plain-text sitemap with the same URL list lets the XML format be checked as a variable separately from the URLs themselves.
+
+Test file:
+
+- Repository file: `sitemap-search-test.txt` (created 2026-10-08)
+- Public URL: https://quietfieldliving.github.io/japandi-home-decor/sitemap-search-test.txt
+- Format: UTF-8 without BOM, one absolute URL per line, LF line endings, trailing newline. No headings, comments, XML tags or blank lines.
+- Content: the `<loc>` values of the current `sitemap.xml`, extracted with an XML parser in the same order. 22 URLs, no duplicates, the guide URL exactly once. The list matches `sitemap.xml` exactly.
+
+Not changed: `sitemap.xml`, `robots.txt`, existing LPs, Priority Amazon CTAs, product/Amazon links, Pinterest Recovery files, GA4 settings, the existing guide.
+
+Search Console: the text sitemap has **not been submitted**. The existing `sitemap.xml` registration has not been removed.
+
+Interpretation limits: whichever way a later submission goes, the result alone does not establish the cause. If the text file is read, that does not prove the XML format was the problem (the timing of Google's retry, caching or other processing differences could explain it). If it also fails, that does not prove the problem is outside the format. Record the result as an observation, not a diagnosis.
