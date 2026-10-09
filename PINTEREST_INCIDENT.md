@@ -10,7 +10,7 @@ Quiet Field Living is experiencing a severe Pinterest Organic distribution colla
 
 The strongest current evidence points to an **account-level, board-level, or domain-associated distribution limitation / spam-quality suppression**, rather than ordinary creative underperformance.
 
-This is a working diagnosis, not proof of a formal Pinterest enforcement action. The account must be inspected in Pinterest Business settings before a final cause is assigned.
+This remains a working diagnosis, not proof of a formal Pinterest enforcement action.
 
 ## Evidence
 
@@ -61,11 +61,25 @@ These are risk factors to investigate, not proven causes.
 2. Repetitive commercial structure: many Pins point to similar affiliate-oriented category LPs.
 3. Similar AI-generated visual style across a large inventory.
 4. Another concentrated publishing batch occurred on 2026-09-12.
-5. Exact duplicate recovery Pins were accidentally created on 2026-10-03.
-6. One known Pin has a malformed destination URL ending in `/TaggedTopics`, which returns HTTP 404.
-7. Pinterest's API currently returns a blank website URL for the account; Pinterest Business UI must be checked to determine whether the website is actually claimed/verified.
+5. Exact / near-duplicate recovery Pins were accidentally created on 2026-10-03.
+6. One Pin had a malformed destination URL ending in `/TaggedTopics`; this has now been corrected.
+7. Pinterest Website Claim is currently not configured.
 
 ## Checks completed
+
+### Authenticated Pinterest account inspection — 2026-10-09
+
+Confirmed directly in Pinterest Business UI:
+
+- Business account is active.
+- No visible account suspension, restriction, policy warning, safety warning or enforcement banner.
+- Profile is public.
+- Search privacy is off.
+- `Japandi Home Decor` exists as a normal public board; it is not secret or archived.
+- Website Claim is not configured.
+- Multiple highly similar Bar Stools Pins exist and share the same destination.
+
+Important: absence of a visible warning does **not** rule out algorithmic distribution suppression.
 
 ### Site / destination safety
 
@@ -73,11 +87,27 @@ These are risk factors to investigate, not proven causes.
 - Representative Bar Stools, Dining Chairs, Dining Tables, Shoe Cabinets and Storage Cabinets LPs return HTTP 200.
 - No Google Web Risk malware/phishing findings were detected in the tested URLs.
 - `robots.txt` allows all user agents and points to the sitemap.
-- One malformed Pinterest destination is confirmed broken:
-  - Pin ID: `1152077148493060489`
-  - Current destination: `https://quietfieldliving.github.io/japandi-home-decor/japandi-dining-tables/TaggedTopics`
-  - Result: HTTP 404
-  - Intended destination: `https://quietfieldliving.github.io/japandi-home-decor/japandi-dining-tables/`
+
+### Broken Pin correction — completed 2026-10-09
+
+Pin ID: `1152077148493060489`
+
+- Previous broken destination: `https://quietfieldliving.github.io/japandi-home-decor/japandi-dining-tables/TaggedTopics`
+- Corrected destination: `https://quietfieldliving.github.io/japandi-home-decor/japandi-dining-tables/`
+- Pinterest UI confirms the corrected Visit Site destination; Pinterest may append its own UTM parameters.
+- No title, image, description or board changes were made.
+
+### Website Claim constraint
+
+Pinterest attempts to claim `quietfieldliving.github.io` at the host level, not only `/japandi-home-decor/`.
+
+The connected GitHub account currently exposes only:
+
+- `quietfieldliving/japandi-home-decor`
+
+There is no `quietfieldliving/quietfieldliving.github.io` user-site repository available through the connected GitHub account. Therefore the current project repository alone cannot reliably place Pinterest's verification file at `https://quietfieldliving.github.io/<verification-file>` or a verification tag at the host root.
+
+Do **not** repeatedly attempt verification against the project subdirectory. Website Claim is a secondary remediation item, not proof of the distribution collapse cause.
 
 ### Site speed
 
@@ -96,71 +126,95 @@ AI image → RGB 1000x1500 JPEG export → platform-issued `file_id` / `source_f
 
 The recurring Publisher and Publisher Health automations are intentionally paused while the Pinterest distribution incident is diagnosed. Do not confuse publishing-tool reliability with Pinterest distribution recovery.
 
+On 2026-10-09, the two already-scheduled Pins were confirmed **PUBLISHED**. No further volume queue should run automatically.
+
 ## Active remediation plan
 
-### Phase 1 — stop adding risk signals
+### Phase 1 — stop adding risk signals — ACTIVE
 
-- Pause the remaining 2-Pins/day recovery queue.
+- Keep the remaining 2-Pins/day recovery queue paused.
 - Do not create another burst of near-similar commercial Pins.
 - Do not create a replacement Pinterest account to evade a possible limitation.
 - Keep LPs and Priority Amazon CTA unchanged during the Pinterest incident investigation.
+- Do not mass-delete historical Pins.
 
-### Phase 2 — authenticated Pinterest account inspection
+### Phase 2 — quiet period and duplicate audit
 
-Inspect Pinterest Business UI for:
+From the last 2026-10-09 publications, maintain a **72-hour quiet period** with no new Pins.
 
-1. Account status, enforcement, warnings, policy notices or feature restrictions.
-2. Claimed website status for Quiet Field Living.
-3. Board visibility / restriction state for `Japandi Home Decor`.
-4. Broken Pin ID `1152077148493060489`; correct the destination if editing is available.
-5. Exact duplicate recovery Pins created on 2026-10-03; retain one legitimate Pin and remove redundant duplicates only if clearly safe to do so.
-6. Whether newly generated Pins show AI labels or any other unusual state.
+During the quiet period:
 
-### Phase 3A — if Pinterest shows an enforcement or distribution restriction
+1. Monitor account-level impressions and fresh-Pin impressions.
+2. Audit exact / near-exact duplicates created during the 2026-10-03 recovery attempt.
+3. Do not delete simply because two Pins share a category; only exact or clearly redundant duplicates qualify for cleanup.
+4. Keep the corrected broken-link Pin live unless another issue is found.
 
-- Correct the identified issues first.
-- Appeal through Pinterest's available account/support flow with a concise factual record:
-  - distribution collapsed sharply on 2026-09-25;
-  - fresh Pins receive 0 impressions;
-  - site passes safety checks;
-  - Pinterestbot is not blocked by robots.txt;
-  - broken URL identified and corrected;
-  - mass publishing has been stopped.
-- Do not resume volume publishing while the appeal/review is unresolved.
+### Phase 3 — controlled distribution test
 
-### Phase 3B — if no explicit restriction is shown
+If, after the 72-hour quiet period:
 
-- Verify/claim the website if missing.
-- Correct the broken Pin URL.
-- Clean up exact duplicates only; do not mass-delete the historical library.
-- Wait for the corrected state to propagate.
-- Publish one controlled test Pin only:
-  - genuinely new image and composition;
-  - unique title/description;
-  - single clean 200 destination URL;
-  - no duplicate image/title;
-  - one high-confidence category, preferably Bar Stools because it has the strongest historical evidence.
-- Success criterion: the test Pin receives measurable impressions. Do not judge by clicks before it receives distribution.
+- no explicit Pinterest enforcement appears,
+- account-level daily impressions remain below 500,
+- and fresh Pins still receive essentially no distribution,
 
-### Phase 4 — scale only after distribution returns
+publish **one** controlled fresh Pin only.
 
-If the controlled test Pin receives normal initial distribution, restart slowly. Do not jump immediately back to 2 Pins/day.
+Test category: **Bed Frames** by default, not Bar Stools. Reason: Bar Stools already has heavy historical and recovery duplication; Bed Frames has strong historical outbound CTR evidence without the same concentration risk.
 
-Suggested progression:
+Controlled test rules:
 
-- Test 1: one Pin
-- If distributed: one additional Pin on a different day/category
-- If both distribute: gradual cadence increase
-- Only return to volume publishing after repeated evidence that new Pins are being tested by Pinterest normally.
+- 1000x1500 image
+- genuinely new composition and furniture scene
+- no text embedded in image
+- unique title and description
+- destination must return HTTP 200
+- destination: `/japandi-bed-frames/`
+- no second test Pin for at least 48 hours
 
-## Monitoring
+Interpretation:
 
-Continue daily diagnostic monitoring of:
+- >20 impressions within 24h: Pinterest is still testing new content; continue diagnosis but suppression is not total.
+- >100 impressions within 24h and account daily impressions >500: early recovery signal.
+- 0–5 impressions after 48h: strong evidence of continuing distribution suppression; escalate to Pinterest support instead of publishing more.
 
-- profile impressions
-- outbound clicks
-- fresh-Pin impressions by Pin ID
-- any recovery in distribution of the controlled test Pin
+### Phase 4 — support escalation if controlled test remains suppressed
+
+If the controlled test remains at 0–5 impressions after 48 hours:
+
+- open Pinterest Business support / account help flow;
+- submit a concise factual incident report where possible;
+- state that mass publishing has stopped, the known broken destination was corrected, the public board/account are accessible, the site is safe, and fresh Pins remain undistributed;
+- if CAPTCHA, email confirmation, identity verification or another human-only step is required, notify the user only at that point.
+
+### Phase 5 — gradual restart only after evidence
+
+If distribution returns:
+
+- one Pin every 48 hours initially;
+- use different categories and clearly different compositions;
+- do not return directly to 2 Pins/day;
+- increase cadence only after multiple fresh Pins receive normal test distribution.
+
+Recovery thresholds:
+
+- Weak: <1,000 impressions/day
+- Partial: 1,000–5,000/day
+- Functional: >5,000/day for 3 consecutive days
+- Prior-range: >8,000/day for 3 consecutive days
+
+## Monitoring / autopilot rules
+
+The user does not need to manually check the project every day.
+
+Automated monitoring should:
+
+- check Pinterest Organic daily data;
+- check fresh-Pin impressions;
+- keep mass publishing paused;
+- perform low-risk corrective actions when the evidence is unambiguous;
+- run the controlled single-Pin test only after the quiet-period criteria are met;
+- escalate to Pinterest support if the test remains suppressed;
+- notify the user only for a material recovery, a material deterioration, or a step that genuinely requires human authentication / confirmation.
 
 Do not treat a successful Metricool publication as a Pinterest recovery signal. The recovery signal is actual Pinterest distribution.
 
