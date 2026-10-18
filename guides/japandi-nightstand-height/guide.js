@@ -24,6 +24,7 @@
   var result = document.getElementById('fit-result');
   function number(id) { return Number(document.getElementById(id).value); }
   function fmt(value) { return Number(value.toFixed(3)).toLocaleString('en-US', { maximumFractionDigits: 3 }); }
+  function units(value) { return fmt(value) + (Math.abs(value) === 1 ? ' inch' : ' inches'); }
   function paragraph(text) {
     var p = document.createElement('p');
     p.textContent = text;
@@ -47,14 +48,14 @@
     var allowance = space - gaps;
     var remaining = allowance - width;
     paragraph(delta === 0 ? 'The tabletop and mattress top are at the same stated height.' :
-      'The tabletop is ' + fmt(Math.abs(delta)) + ' inches ' + (delta > 0 ? 'higher' : 'lower') + ' than the mattress top. Try that reach before choosing.');
-    paragraph('Your body-width allowance is ' + fmt(allowance) + ' inches.');
+      'The tabletop is ' + units(Math.abs(delta)) + ' ' + (delta > 0 ? 'higher' : 'lower') + ' than the mattress top. Try that reach before choosing.');
+    paragraph('Your body-width allowance is ' + units(allowance) + '.');
     if (remaining < 0) {
-      paragraph('The table exceeds that allowance by ' + fmt(-remaining) + ' inches. It does not meet your stated width limit.');
+      paragraph('The table exceeds that allowance by ' + units(-remaining) + '. It does not meet your stated width limit.');
     } else if (remaining === 0) {
       paragraph('The table exactly fills that allowance, with no extra margin for measurement error or assembly variation. Confirm the full footprint before buying.');
     } else {
-      paragraph('The table leaves ' + fmt(remaining) + ' inches inside that allowance. This is a width check, not a complete fit recommendation.');
+      paragraph('The table leaves ' + units(remaining) + ' inside that allowance. This is a width check, not a complete fit recommendation.');
     }
     paragraph('Depth, door swing or drawer extension, walking space, and comfortable reach still need checking.');
     track('nightstand_fit_check', { check_type: 'height_width' });

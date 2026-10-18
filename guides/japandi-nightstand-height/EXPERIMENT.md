@@ -72,3 +72,13 @@ If no existing product fits the reader's conditions, the honest “none fits” 
 - JavaScript syntax and jsdom checks passed: height above/below/equal; width too large/exact/remaining; invalid gaps; decimal boundary; stale answer hides on edit; all three LP link events; production-only loader; QA exclusion; payload omits input values.
 - Chromium download failed (truncated archive), so local browser QA was unavailable. Public browser review is recorded separately after deployment; do not claim true 390px QA unless performed.
 - Live GA4 ingestion and same-session full sequence remain unverified; do not report the pilot as fully measured until validated.
+
+## Public release verification
+
+Released by GitHub API to main at commit `4131da8cce11a1f3c6ec8a12686504c1c625fa68` (Add source-checked nightstand measurement pilot), 2026-10-18 UTC / 2026-10-19 JST. API-created tree exactly matched the locally checked tree. Shell push was unavailable because no terminal GitHub credential was configured; the connected GitHub app performed the authorized publication.
+
+- Public HTML, CSS, JS, two diagrams, social PNG and root sitemap returned HTTP 200 and matched the checked local bytes.
+- Public desktop Chrome viewport: 1363px, no horizontal document overflow, both diagrams loaded. Calculator example 26/22/24/4/19 produced 4 inches lower, a 20-inch width allowance and 1 inch remaining. QA URL used `?qfl_preview=1`, so this guide did not send production analytics. No Amazon click performed.
+- The first button attempt did not expose a result; a second explicit click did and the rendered calculation was verified. No repeatable calculator error was found in local DOM tests.
+- True 390px browser verification remains incomplete: no local Chromium binary, failed browser download, and the cloud browser does not permit local-file navigation. Mobile stacking is implemented but is not claimed browser-verified. No attempt was made to bypass the browser URL restriction.
+- A follow-up corrects singular “inch” wording and records verification. Source data and protected assets are unchanged.
