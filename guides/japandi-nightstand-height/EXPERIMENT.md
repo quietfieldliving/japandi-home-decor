@@ -33,6 +33,17 @@ Additional GSC queries attempted 2026-10-18, filtering the exact Nightstands LP,
 
 GSC interface can supply a free manual export; an agent-readable connector is not required to operate the website. Live GA4 receipt, Search Console URL Inspection and indexing are not yet verified. Do not confuse deployment with indexing or installed event code with verified GA4 receipt.
 
+### Pre-release Search Console baseline (manual export)
+
+The submitted Search Console Excel covers WEB search from 2026-10-04 through 2026-10-15, before this guide was released. It is a baseline for the existing site, not post-release evidence for this guide.
+
+- Existing Nightstands LP: 54 impressions, 2 clicks, 3.70% CTR, average position 8.46.
+- Site-wide United States row: 127 impressions, 4 clicks, 3.15% CTR, average position 15.28.
+- Named nightstand queries visible in the export total 12 impressions and 1 click: `japandi nightstand`, `best nightstands 2026 in japan`, `japandi bedside table`, `japandi bedside tables`, `japandi nightstands`, and `nightstand japandi`.
+- No named height, width, bed-fit, drawer-extension, door-swing or clearance query appears in this export.
+
+The workbook has separate Queries, Pages and Countries tabs; it does not join page + country + query. Therefore the US total cannot be assigned to the Nightstands LP, the named queries cannot all be assigned to that page, and anonymized queries are absent. Missing purchase-condition rows are not counted as zero demand. The guide itself was not live during the export window, so this file contains no impressions, clicks or query evidence for the guide.
+
 ## Events and reporting
 
 Same GA4 measurement ID as the existing site: G-JQ7SQ8TM4Z. Loader runs only on the exact production guide path (including explicit index.html). Local, other-host, and `?qfl_preview=1` requests send no analytics. QA uses no real Amazon clicks. Existing LP analytics are unmodified.
