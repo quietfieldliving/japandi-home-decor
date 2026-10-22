@@ -23,9 +23,11 @@ Manufacturer source: https://nathanjames.com/products/mina-end-table-1-cabinet-w
 Manufacturer-linked instructions: https://nathanjameshome.hflip.co/33201-IS (link checked; manual content not independently extracted).
 Retailer research sources: https://www.amazon.com/dp/B084HCTYZ7 ; https://www.amazon.com/dp/B0GJK2BYDW ; https://www.amazon.com/dp/B0H3323WP2 . Direct retailer links are not introduced into the new public page; readers go through the existing collection.
 
+Manufacturer follow-up (2026-10-22 UTC): Nathan James now exposes Mina SKU 33201 storage dimensions in the official product page text: open cubby 17.7 inches wide × 5.5 inches high; internal storage 17.7 inches wide × 9.4 inches high. Storage depths and the clearance envelope required by the fixed left-hand door swing are not specified. The guide was updated to add only these manufacturer-backed dimensions; the other two products remain listing-only.
+
 Material findings: Mina manufacturer lists engineered wood, laminate, metal and rattan. TROJM listing identifies engineered-wood frame/top; FurniXpress listing identifies engineered wood. Natural-oak finish is not evidence of solid-oak construction. Mina has an open cubby and a left-swing hinged door, although the old LP calls the front a drawer. Old LP remains unchanged; the new guide explicitly distinguishes this. Do not infer durability, actual material quality or tactile finish from these sources.
 
-Opening envelope/extension: unknown for all three. No automatic product recommendation. TROJM/FurniXpress are not recommended for conditions requiring manufacturer-verified specifications. Mina's larger published dimension envelope can be used for conservative planning, not as a replacement manufacturer specification. Boundary fits require confirmation.
+Opening envelope/extension: the Mina storage opening widths and heights are now manufacturer-listed, but its storage depths and required door-swing clearance remain unknown; drawer extension remains unknown for TROJM and FurniXpress. No automatic product recommendation. TROJM/FurniXpress are not recommended for conditions requiring manufacturer-verified specifications. Mina's larger published dimension envelope can be used for conservative planning, not as a replacement manufacturer specification. Boundary fits require confirmation.
 
 ## Demand and baseline limitations
 
