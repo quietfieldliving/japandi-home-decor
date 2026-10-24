@@ -132,3 +132,12 @@ The extracted manual text lists a door, pin hinges and magnetic catch (printed p
 | Protection and rendering | Git diff and published guide | Existing LP, Priority Amazon CTA and Pinterest files unchanged; check the changed table at desktop and 390px if public HTML changes; unknowns remain visible |
 
 Status: no new public HTML changes in this follow-up. Only this experiment record is updated. The existing manufacturer's published values support preliminary comparisons; missing measurements do not block an explicitly limited sizing guide. They do block specific storage-fit, tight-installation and durability recommendations. Further repetitive searches without new evidence are not a reason to expand claims.
+
+
+## Calculator boundary correction: 2026-10-25 JST
+
+Reproduced floating-point error for an exact decimal fit: space 24.3, total gaps 4.1, width 20.2 could say 'leaves 0 inches' rather than exactly fills. The 0.3/0.1/0.2 case could say exceeds by zero. Subtraction now uses integer hundredths, consistent with all five inputs' step=0.01; this changes arithmetic only, not fit advice or tracking semantics.
+
+The original script fails the exact-fit regression. The corrected script passes 11 JavaScript/DOM-stub checks covering three decimal exact-fit examples, one-hundredth over/under, height above/below/equal, invalid gaps, stale-answer hiding, one valid-fit event with no measurement payload, and preview analytics exclusion. Syntax passed. No mobile browser QA or live GA4 verification is claimed.
+
+Before the change, the public guide returned HTTP 200 and public sitemap parsed with 23 unique URLs, this guide once. Manufacturer product text rechecked; storage depth and operating-clearance gaps remain unresolved. No protected LP, Priority CTA, affiliate link, product selection, Pinterest file, shared tracking or sitemap was edited. The current summary is synchronized in SEARCH_GROWTH.md; its older first-page sections remain dated historical records.

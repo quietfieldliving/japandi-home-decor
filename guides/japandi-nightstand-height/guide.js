@@ -44,9 +44,13 @@
       paragraph('Reserved side gaps must total less than the available side space. Check your measurements.');
       return;
     }
-    var delta = height - mattress;
-    var allowance = space - gaps;
-    var remaining = allowance - width;
+    // Inputs use hundredths of an inch (step=0.01). Subtract integer units
+    // so an exact decimal fit cannot become a tiny positive/negative margin.
+    function hundredths(value) { return Math.round(value * 100); }
+    var delta = (hundredths(height) - hundredths(mattress)) / 100;
+    var allowanceUnits = hundredths(space) - hundredths(gaps);
+    var allowance = allowanceUnits / 100;
+    var remaining = (allowanceUnits - hundredths(width)) / 100;
     paragraph(delta === 0 ? 'The tabletop and mattress top are at the same stated height.' :
       'The tabletop is ' + units(Math.abs(delta)) + ' ' + (delta > 0 ? 'higher' : 'lower') + ' than the mattress top. Try that reach before choosing.');
     paragraph('Your body-width allowance is ' + units(allowance) + '.');

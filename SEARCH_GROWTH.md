@@ -1,8 +1,17 @@
 # Search Growth — isolated support-page experiment
 
-## Status: page 1 published on 2026-10-04
+## Current status: two isolated support pages (updated 2026-10-25 JST)
 
-One support page only:
+- `guides/stool-height-36-inch-counter/`: published 2026-10-04.
+- `guides/japandi-nightstand-height/`: published 2026-10-18 UTC / 2026-10-19 JST. Its source audit, measurement controls and decision gates are in `guides/japandi-nightstand-height/EXPERIMENT.md`.
+- Public sitemap checked 2026-10-25 JST: 23 unique URLs; each guide appears once. This confirms public XML content, not successful processing in Search Console.
+- No existing category LP, Priority Amazon CTA, Amazon product route or Pinterest file was changed for this follow-up. Current GSC performance and live GA4 event ingestion remain unverified.
+
+The following sections preserve the dated history of the first support page; older counts and statements about one page are historical, not the current inventory.
+
+## First support page: published 2026-10-04
+
+Initial support page:
 
 `guides/stool-height-36-inch-counter/`
 
@@ -229,3 +238,14 @@ Not changed: `sitemap.xml`, `robots.txt`, existing LPs, Priority Amazon CTAs, pr
 Search Console: the text sitemap has **not been submitted**. The existing `sitemap.xml` registration has not been removed.
 
 Interpretation limits: whichever way a later submission goes, the result alone does not establish the cause. If the text file is read, that does not prove the XML format was the problem (the timing of Google's retry, caching or other processing differences could explain it). If it also fails, that does not prove the problem is outside the format. Record the result as an observation, not a diagnosis.
+
+
+## Nightstand technical follow-up: 2026-10-25 JST
+
+Read current guide HTML/JavaScript and its EXPERIMENT.md before making changes. The published page already contains the manufacturer-backed Mina storage widths/heights added on 2026-10-22. Rechecked the manufacturer's product page: storage depths and door-swing clearance are still not specified in its text; the official flipbook could not be extracted in this follow-up. The parallel evidence record documents a retailer-hosted manufacturer manual; it does not establish the missing numeric clearances. No new product specification was inferred.
+
+Found and reproduced a calculator boundary bug: 24.3 inches of space minus 4.1 inches of reserved gaps minus a 20.2-inch table produced a tiny positive floating-point remainder and reported that it 'leaves 0 inches' rather than exactly filling the allowance. Other decimals could report exceeding by zero. Corrected subtraction to integer hundredths, matching the form's step=0.01. Existing event names, parameters and production/preview gating are unchanged.
+
+Validation: original code fails the exact-fit regression; corrected code passes 11 checks covering decimal exact fits, 0.01-inch over/under margins, height above/below/equal, invalid gaps, stale-answer hiding, event payload privacy and preview analytics exclusion. JavaScript syntax passed. This is DOM-stub/JavaScript validation, not mobile browser verification or proof of GA4 receipt.
+
+Read-only public checks before this change: Nightstands guide returned HTTP 200; sitemap parsed with 23 unique URLs and the Nightstands guide once. No sitemap edit or resubmission was made. Search Console processing/indexing, post-release demand and the GA4 same-session funnel remain open; Supermetrics trial expiry is not a reason to infer zero traffic or purchase failure.
