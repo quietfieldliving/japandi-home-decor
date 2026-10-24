@@ -95,3 +95,40 @@ Released by GitHub API to main at commit `4131da8cce11a1f3c6ec8a12686504c1c625fa
 - The first button attempt did not expose a result; a second explicit click did and the rendered calculation was verified. No repeatable calculator error was found in local DOM tests.
 - True 390px browser verification remains incomplete: no local Chromium binary, failed browser download, and the cloud browser does not permit local-file navigation. Mobile stacking is implemented but is not claimed browser-verified. No attempt was made to bypass the browser URL restriction.
 - A follow-up corrects singular “inch” wording and records verification. Source data and protected assets are unchanged.
+
+
+## Evidence decision and minimum publication gate (2026-10-25 JST)
+
+Rechecked the official Mina SKU 33201 product page. This is published-specification research, not a hands-on test. Manufacturer publication does not establish as-built dimensions, tolerance, quality or durability.
+
+| Evidence class | Information | Permitted comparison use | Excluded inference |
+|---|---|---|---|
+| Manufacturer product-page specification | Overall W 18.9 × D 16.9 × H 22.2 inches | Preliminary body-size and mattress-height arithmetic | Guaranteed tight-space fit or measured dimensions |
+| Manufacturer product-page specification | Open cubby W 17.7 × H 5.5 inches; internal storage W 17.7 × H 9.4 inches | Compare the stated width and height independently | Storage depth, volume, usable insertion aperture or guaranteed object fit |
+| Manufacturer product-page description | Fixed left-hand door swing; engineered wood, laminate, metal, rattan | Distinguish hinged door from drawer; list stated materials | Reversible door, solid oak, tactile finish or durability ranking |
+| Manufacturer-stated limits | Top 90 lb; each shelf 30 lb | Attribute as manufacturer load limits if needed | Independently tested strength or long-term durability |
+| Unknown | Storage depths, swing envelope, unobstructed insertion aperture, assembly tolerance and actual assembled dimensions | State unknown; stop recommendations dependent on these conditions | Derive from overall depth, photographs, unscaled diagrams or assumed hinge geometry |
+| Unknown | Stability, finish quality, assembly difficulty in practice, durability | State no physical testing | Treat marketing assembly time or warranty as performance evidence |
+| Historical retailer audit, not refreshed in this follow-up | Mina ASIN B084HCTYZ7, model 33201, one table | Identify the previously checked destination | Claim current selected variant, offer, availability, delivery or returns verified |
+| Listing-only, historical retailer audit | TROJM and FurniXpress specifications | Explicitly label seller-reported reference data | Manufacturer-verified comparison or quality recommendation |
+| Unresolved conflict | TROJM title/unit count implies two tables; Number of Items says one | Expose the conflict | Assume two complete tables, calculate per-table value or recommend a pair |
+
+### Additional manual located
+
+The official flipbook URL could not be retrieved through the research tool; that limitation remains. A manufacturer-authored 14-page Mina Side Table instruction PDF, marked SKU 33201 and revision 23-1229-VN, was located on retailer-hosted infrastructure:
+https://images.thdstatic.com/catalog/pdfImages/b4/b45f824e-e326-4660-97a6-4fba00be2269.pdf
+
+The extracted manual text lists a door, pin hinges and magnetic catch (printed pp. 2, 4, 8–9), and top/shelf limits of 90/30 lb (printed p. 2). Printed p. 13 instructs screw tightening two weeks after assembly and checking every two months. This is a retailer-hosted copy of manufacturer-authored instructions, not a successfully retrieved copy of the current official flipbook; revision equivalence is unverified. No numeric storage-depth, door-clearance or assembly-tolerance specification was established from this copy. Do not scale its drawings. No new public performance or fit claim is authorized by these findings.
+
+### Minimum check before the next guide publication/update
+
+| Check | Where | Completion criterion |
+|---|---|---|
+| Variant identity | Manufacturer SKU and retailer model/ASIN, finish and pack selector | Match the exact variant; retain an explicit unknown for unresolved quantity; recheck retailer selection before describing it as current |
+| Units, axes and provenance | Guide comparison and source section | Overall W × D × H; storage W × H only; each datum attributed and dated; manufacturer text and rounded diagram kept distinct |
+| Claim boundaries | Guide prose, comparison, calculator result | No storage-depth substitution, object-fit guarantee, door-clearance certification, as-built precision or durability claim; no physical testing implied |
+| Tight-space use | Relevant recommendation | Obtain maximum overall dimensions including projections and tolerance, plus required operating clearances; otherwise withhold that recommendation |
+| Manual status | Source/method note | Distinguish the retailer-hosted manual from the unavailable official flipbook; do not claim current manual equivalence |
+| Protection and rendering | Git diff and published guide | Existing LP, Priority Amazon CTA and Pinterest files unchanged; check the changed table at desktop and 390px if public HTML changes; unknowns remain visible |
+
+Status: no new public HTML changes in this follow-up. Only this experiment record is updated. The existing manufacturer's published values support preliminary comparisons; missing measurements do not block an explicitly limited sizing guide. They do block specific storage-fit, tight-installation and durability recommendations. Further repetitive searches without new evidence are not a reason to expand claims.
