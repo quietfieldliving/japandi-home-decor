@@ -141,3 +141,17 @@ Reproduced floating-point error for an exact decimal fit: space 24.3, total gaps
 The original script fails the exact-fit regression. The corrected script passes 11 JavaScript/DOM-stub checks covering three decimal exact-fit examples, one-hundredth over/under, height above/below/equal, invalid gaps, stale-answer hiding, one valid-fit event with no measurement payload, and preview analytics exclusion. Syntax passed. No mobile browser QA or live GA4 verification is claimed.
 
 Before the change, the public guide returned HTTP 200 and public sitemap parsed with 23 unique URLs, this guide once. Manufacturer product text rechecked; storage depth and operating-clearance gaps remain unresolved. No protected LP, Priority CTA, affiliate link, product selection, Pinterest file, shared tracking or sitemap was edited. The current summary is synchronized in SEARCH_GROWTH.md; its older first-page sections remain dated historical records.
+
+
+## Day 7 technical checkpoint: 2026-10-26 JST
+
+- Main still ends at commit `3a9e80079eff6a2b980ea078e349b1b68e0ac179`; no later repository change was found in this check.
+- The current main blobs remain `guide.js` `1941bee4cc721f30bc727a8a601e07e1eb3eca63`, this record `04c85f463e8595cb9057984132dd4b4aa29aed5f` before this append, and unchanged project rules `268050e001cd2f474644c6727d7f44f8dd3bccae`.
+- The decimal-boundary correction was independently checked for exact fit (24.3 − 4.1 − 20.2 = 0 and 0.3 − 0.1 − 0.2 = 0) and one-hundredth over/under results. This verifies the arithmetic path, not the deployed browser file.
+- GitHub returned no combined status contexts for the latest commit. Absence of a status context is not a failed Pages deployment and is not deployment proof.
+- An exact-title and exact-URL public web search through the available search provider did not surface this guide. Competing nightstand-height pages appeared. This result is not Google Search Console evidence, cannot establish non-indexing, and is not counted as zero impressions.
+- Gmail contained no new Search Console notification after 2026-10-19 in the checked query. Email absence does not establish unchanged GSC performance.
+- True 390px browser rendering, the post-fix public calculator, Search Console URL Inspection/sitemap processing, US page-filtered purchase-condition queries, live GA4 receipt and the same-session closed sequence remain unverified. Known browser/authentication restrictions were not bypassed or retried through the blocked route.
+- No public guide copy, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap or shared measurement code was changed at this checkpoint.
+
+Day 7 decision: no evidence supports a purchase-funnel judgment yet. Keep the pilot running without expansion. The next high-value checks are authenticated GSC discovery/query evidence and a no-production-analytics 390px/post-fix public browser run when those environments become available.
