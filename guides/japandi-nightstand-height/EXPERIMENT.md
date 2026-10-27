@@ -155,3 +155,10 @@ Before the change, the public guide returned HTTP 200 and public sitemap parsed 
 - No public guide copy, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap or shared measurement code was changed at this checkpoint.
 
 Day 7 decision: no evidence supports a purchase-funnel judgment yet. Keep the pilot running without expansion. The next high-value checks are authenticated GSC discovery/query evidence and a no-production-analytics 390px/post-fix public browser run when those environments become available.
+
+
+## Structured-data maintenance: 2026-10-27 JST
+
+The calculator behavior changed on 2026-10-25 JST, but the Article JSON-LD still reported `dateModified` as 2026-10-22. Updated only that machine-readable field to `2026-10-25`, matching the latest public-facing functional change. The visible “Sources checked October 22, 2026” line and comparison caption remain unchanged because the product-source review date did not change.
+
+No title, description, canonical, product statement, affiliate route, event name, tracking gate, existing LP, Priority CTA, Pinterest file or sitemap entry was changed. Repository inspection confirms one Article object and one `dateModified` field in the guide HTML. Public browser verification remains pending under the existing access restriction; repository publication is not claimed as proof of deployed bytes, indexing or GA4 receipt.
