@@ -189,3 +189,13 @@ No title, description, canonical, product statement, affiliate route, event name
 - Searched the exact FurniXpress model `FCN048_07`, ASIN `B0H3323WP2` and brand combinations for an official product page, manual or specification sheet. No manufacturer-controlled source for the exact model was located in the checked results. A third-party result for the similar model `FCN047_07` reports the same overall dimensions and two drawers, but the model and ASIN differ; none of its load, slide, material-detail or packaging claims are transferred to `FCN048_07`.
 - Search results indicating a brand owner or manufacturer name without exact-product documentation are not treated as a product specification. No public guide claim was expanded. Missing manufacturer evidence, set contents and opening dimensions remain unknown rather than zero.
 - No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap or shared measurement code was changed. Only this verification record was updated.
+
+
+## Event-separation execution check: 2026-10-31 JST
+
+- Direct retrieval of the public QA HTML and `guide.js` through the available web-fetch route returned an access error. The blocked route was not retried or bypassed, so deployed-byte equality remains unverified.
+- Executed the current main `guide.js` against a deterministic DOM/IntersectionObserver stub in two modes. In live-path mode, repeated comparison visibility produced one `nightstand_comparison_view`; one valid form submission produced one `nightstand_fit_check`; one in-page evidence link produced one `nightstand_source_check`; and one eligible collection link produced one `support_to_money`.
+- The emitted fit event contained only `support_page_id` and `check_type`, not mattress height, table height, space, gaps or width. The support event contained the expected money-page path, placement, link URL and beacon transport. This keeps table exposure, calculator use, source checking and money-page intent analytically distinct in source execution.
+- In `?qfl_preview=1` mode, the same calculation produced visible result text but loaded no GA script and emitted no events. This supports production-safe QA behavior in the tested logic.
+- The harness verifies event branching and payloads only. It is not a 390px browser rendering test, deployed-file test, GA4 receipt test, same-session report or downstream `amazon_click` verification.
+- No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap or shared measurement code was changed. Only this verification record was updated.
