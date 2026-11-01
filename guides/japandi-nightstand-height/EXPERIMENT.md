@@ -199,3 +199,12 @@ No title, description, canonical, product statement, affiliate route, event name
 - In `?qfl_preview=1` mode, the same calculation produced visible result text but loaded no GA script and emitted no events. This supports production-safe QA behavior in the tested logic.
 - The harness verifies event branching and payloads only. It is not a 390px browser rendering test, deployed-file test, GA4 receipt test, same-session report or downstream `amazon_click` verification.
 - No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap or shared measurement code was changed. Only this verification record was updated.
+
+
+## Internal discovery-path audit: 2026-11-01 JST
+
+- Main still ended at commit `9dfa9c61ca697a8299404ba63fb28fa3c8616a18` before this record. GitHub returned no workflow run or combined-status context for that commit. The available workflow wrapper covers pull-request-triggered runs, so this absence is neither Pages deployment failure nor deployment proof.
+- Enumerated the complete main tree at that commit and inspected all 32 HTML files outside this guide directory. None contains `japandi-nightstand-height`; therefore no other checked HTML page links to this guide in repository source. The guide links downstream to the existing Nightstands LP, but the protected LP and other site pages do not link back.
+- The XML sitemap contains the guide URL exactly once. The separate `sitemap-search-test.txt` file does not contain it. XML sitemap inclusion is a discovery signal, not evidence that Google fetched, indexed or served the URL.
+- This establishes a discovery constraint for Day 14 interpretation: the guide currently depends on the XML sitemap and external discovery rather than crawlable inbound HTML links from the checked site pages. Low or absent GSC activity cannot be attributed only to topic demand while this constraint and unverified sitemap processing remain.
+- No inbound-link change is authorized in the current scope because existing LPs, the home page, other guides and sitemap files are protected. No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap or shared measurement code was changed. Only this verification record was updated.
