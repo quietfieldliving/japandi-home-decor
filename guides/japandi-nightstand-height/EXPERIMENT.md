@@ -240,3 +240,13 @@ No title, description, canonical, product statement, affiliate route, event name
 - Revenue decision: do not edit the guide or sitemap merely to create activity. On 2026-11-05 JST, first recheck the guide URL's indexed/crawled state. If it remains unindexed, inspect the sitemap submission detail and displayed last-read/status before any resubmission. A repeated indexing request without new evidence is not the next step.
 - No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap, robots file or shared measurement code was changed. Only this verification record was updated.
 
+## Authenticated GSC indexing and first-impression evidence: 2026-11-05 JST
+
+- The operator rechecked the exact guide URL in Google Search Console after the 2026-11-02 indexing request. URL Inspection now reported that the URL is on Google and eligible to appear in Google Search. HTTPS and Breadcrumb structured data were shown as valid. This is authenticated evidence that the previous unindexed discovery obstacle was resolved by November 5; it does not establish traffic or conversion.
+- In the Search results report, with Web search, the past-three-month date range and a page filter containing `/guides/japandi-nightstand-height/`, the guide showed 1 impression, 0 clicks and average position 7. The single impression is too small to describe stable rank, CTR, demand or purchase intent.
+- The Queries tab and Countries tab both showed “No data” for this page filter. This does not convert the hidden or unavailable dimension into zero. The query is unknown and the country is unknown, so the impression cannot be classified as a US purchase-condition search.
+- The unfiltered site report showed 19 clicks, about 1,160 impressions, 1.6% CTR and average position 17 for the displayed site/date scope. Those site totals are not attributed to this guide.
+- The indexing request was not repeated and no sitemap resubmission was performed. The earlier authenticated sitemap processing error remains a separate unresolved site-level issue because its status was not rechecked in this evidence set.
+- Revenue decision: discovery is no longer the largest verified obstacle. Exposure is still only one impression, so the guide's search and purchase performance remain indeterminate and no copy rewrite is justified. The next independent measurement obstacle is live GA4 receipt and the same-session guide → existing Nightstands LP → `amazon_click` sequence; code presence is not receipt evidence.
+- No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap, robots file or shared measurement code was changed. Only this verification record was updated.
+
