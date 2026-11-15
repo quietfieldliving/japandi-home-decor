@@ -321,3 +321,14 @@ No title, description, canonical, product statement, affiliate route, event name
 - On November 18, record the last date actually available in each source. If GSC or GA4 has not processed November 17, the 30-day decision is provisional or indeterminate; do not fill the lagging tail with zero and do not rewrite the guide to create activity.
 - Final interpretation remains bounded: fewer than 100 US organic guide landing sessions or unavailable cohort data means purchase behavior is inconclusive. Existing LP copy is a downstream confounder, shared Amazon tags do not attribute orders/revenue to this page, and missing manufacturer evidence remains unknown.
 - No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap, robots file or shared measurement code was changed. Only this verification record was updated.
+
+
+## Exact-viewport attempt and manufacturer-evidence recheck: 2026-11-15 JST
+
+- Main ended at commit `747d42ef253da730def1f693b8a08b748f9ae2b9` before this record.
+- Opened the public guide with `?qfl_preview=1` in the available real Chrome browser. The page reported `window.innerWidth = 1363`, `document.documentElement.clientWidth = 1348`, `scrollWidth = 1348` and device pixel ratio 1. This proves no document-level horizontal overflow in that desktop viewport only; it is not a 390px result.
+- Attempted to enter Chrome's responsive viewport mode for an exact 390 CSS-pixel check. Chrome displayed “DevTools not allowed on this page” and “Your organization has blocked the use of DevTools on this page.” The attempt stopped at that explicit browser-policy boundary. No alternate route, browser fingerprint change or policy bypass was attempted.
+- Exact 390px rendering therefore remains unresolved. The block belongs to the available test-browser environment, not to the guide. The source-level mobile precheck remains supporting evidence only and must not be promoted to rendered-browser verification.
+- Re-searched the exact target identifiers `TROJM A30101014NW1` and `FurniXpress FCN048_07` for manufacturer documentation. No first-party manufacturer manual or specification page for either exact target was located in the returned results.
+- A third-party Mercado Libre record for TROJM A30101014NW1 repeats a two-table quantity and approximately matching dimensions, but it is not manufacturer evidence and does not resolve drawer extension. FurniXpress results were for adjacent or different models, including FCN047_07 and FCN022 variants, so they must not be transferred to FCN048_07. The target FurniXpress pack size, manufacturer-verified dimensions and drawer extension remain unknown.
+- No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap, robots file or shared measurement code was changed. No Amazon link was opened. Only this verification record was updated.
