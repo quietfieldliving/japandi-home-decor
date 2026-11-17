@@ -343,3 +343,15 @@ No title, description, canonical, product statement, affiliate route, event name
 - Availability of the custom parameters as GA4 report dimensions is not established. If `support_page_id`, `source_id` or `link_placement` is absent from the authenticated reporting interface, record the dimension as unavailable; do not translate that absence into zero use.
 - The preview guard is source-confirmed: on the exact guide path with `?qfl_preview=1`, `analytics` is false, the GA script is not loaded by `guide.js`, and the guide's custom `track` function returns before emitting an event. This is code behavior, not evidence about production GA4 receipt.
 - No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap, robots file or shared measurement code was changed. Only this verification record was updated.
+
+
+## Preview interaction checkpoint: 2026-11-17 JST
+
+- Main ended at commit `ef63c796b1531f6e6910285753e4b1a7160a6a53` before this record.
+- Opened the public guide in the available real Chrome browser at `?qfl_preview=1`. Before interaction, the only non-empty script source in the document was the local `guide.js`; `window.gtag` was not a function and `window.dataLayer` was not an array.
+- Performed a real calculator interaction with mattress height 26, table height 22, side space 24, combined gaps 4 and table width 19 inches. The visible result correctly reported a tabletop 4 inches lower, a 20-inch body-width allowance and 1 inch remaining, followed by the separate depth/opening/reach warning.
+- The comparison table was visibly rendered before and after the calculator action. This establishes table display in this desktop preview session, not a production `nightstand_comparison_view` receipt.
+- Clicked the Mina in-page `Source` control. The URL changed to `#source-mina` and the Mina source target was reached. This is an observed source interaction and is distinct from passive table display. Because preview analytics remained disabled, it is not a production `nightstand_source_check` receipt.
+- After both interactions, `window.gtag` and `window.dataLayer` were still absent and the document still contained only the local guide script. This is runtime evidence that this preview QA did not initialize the guide's GA client; it does not establish production GA4 receipt or non-receipt.
+- The collection links were not opened because the existing LP does not share the guide's preview guard and could create a production LP page view. No Amazon link was opened. Exact 390px rendering remains unresolved under the November 15 browser-policy checkpoint.
+- No guide HTML/CSS/JS, existing LP, Priority CTA, affiliate destination, product selection, Pinterest file, sitemap, robots file or shared measurement code was changed. Only this verification record was updated.
